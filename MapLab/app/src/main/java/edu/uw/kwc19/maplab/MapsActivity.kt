@@ -36,6 +36,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        mMap.uiSettings.setZoomControlsEnabled(true)
 
         // Add a marker to mgh and move camera
         val mgh = LatLng(47.655,  -122.3078)
