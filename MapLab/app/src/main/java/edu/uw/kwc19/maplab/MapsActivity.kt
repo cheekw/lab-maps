@@ -7,8 +7,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -35,9 +37,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        // Add a marker to mgh and move camera
+        val mgh = LatLng(47.655,  -122.3078)
+        mMap.addMarker(
+            MarkerOptions()
+                .position(mgh)
+                .title("ducks that dwell here poop everywhere")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(mgh))
+        val rectOptions =  PolylineOptions()
+            .add(LatLng(47.653975, -122.308101))
+            .add(LatLng(47.653581, -122.307981))
+            .add(LatLng(47.653922, -122.307833))
+            .add(LatLng(47.653577, -122.307640))
+            .add(LatLng(47.653995, -122.307549))
+            .color(R.color.huskyPurple)
+        mMap.addPolyline(rectOptions)
     }
 }
