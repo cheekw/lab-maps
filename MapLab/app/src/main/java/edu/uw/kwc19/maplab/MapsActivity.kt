@@ -44,7 +44,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .position(mgh)
                 .title("ducks that dwell here poop everywhere")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(mgh))
+        val zoomLevel = 17.0f
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mgh, zoomLevel))
         val rectOptions =  PolylineOptions()
             .add(LatLng(47.653975, -122.308101))
             .add(LatLng(47.653581, -122.307981))
