@@ -42,10 +42,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(
             MarkerOptions()
                 .position(mgh)
+                .title("Mary Gates Hall")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+
+        val lake = LatLng(47.6538, -122.3078)
+        mMap.addMarker(
+            MarkerOptions()
+                .position(lake)
                 .title("ducks that dwell here poop everywhere")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))
-        val zoomLevel = 17.0f
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mgh, zoomLevel))
+        val zoomLevel = 19.0f
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lake, zoomLevel))
         val rectOptions =  PolylineOptions()
             .add(LatLng(47.653975, -122.308101))
             .add(LatLng(47.653581, -122.307981))
